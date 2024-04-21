@@ -30,7 +30,7 @@ class ReviewController extends GetxController {
     return <Review>[];
   }
 
-  Future<void> createReview(String title, String courseId, double rating, String reviewText ) async {
+  Future<void> createReview(String courseId, double rating, String reviewText ) async {
 
     try {
       loading.value = true;

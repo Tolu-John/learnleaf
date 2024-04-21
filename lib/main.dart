@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learnleaf/controllers/auth_controller.dart';
+import 'package:learnleaf/screens/splash_screen.dart';
+import 'controllers/course_controller.dart';
 import 'controllers/review_controller.dart';
+import 'controllers/user_controller.dart';
 import 'core/model/course.dart';
 import 'core/model/review.dart';
 import 'core/service/CourseSv.dart';
@@ -15,39 +19,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    Get.put(()=> UserController());
+    Get.put(()=> AuthController());
+    Get.put(()=> CourseController());
+    Get.put(()=> ReviewController());
+
+
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const SplashScreen(),
     );
   }
-}
-
-
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final ReviewController _reviewController = Get.put(ReviewController());
-
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-    );
-  }
-
 }
 
 
